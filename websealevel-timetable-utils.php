@@ -37,18 +37,18 @@ function format_unit_timetable(Unit_Timetable $time_table = new Unit_Timetable()
  * @param string $format Format du DateTime.
  * @param string $separator_am_pm Optional Le séparateur entre l'horaire unitaire du matin et de l'après-midi, si $start_end est égal à 'start_end'.
  * @param string $separator_start_end Optional Le séparateur entre le début et la fin si $start_end est égal à 'start_end'.
- * @param string $format_unit_time_table Une fonction pour formater un Unit_Timetable
+ * @param string $formater_unit_time_table Une fonction pour formater un Unit_Timetable
  * @return string
  */
-function format_day_timetable(Day_Timetable $day = new Day_Timetable(), string $format_unit_time_table = __NAMESPACE__ . '\format_unit_timetable', string $am_pm = 'am_pm', string $format = 'H:i', string $separator_am_pm = ' ', string $separator_start_end = '-',): string|array
+function format_day_timetable(Day_Timetable $day = new Day_Timetable(), string $formater_unit_time_table = __NAMESPACE__ . '\format_unit_timetable', string $am_pm = 'am_pm', string $format = 'H:i', string $separator_am_pm = ' ', string $separator_start_end = '-',): string|array
 {
     return match ($am_pm) {
 
-        'am' => call_user_func($format_unit_time_table, time_table: $day->am, format: $format, separator: $separator_start_end),
-        'pm' => call_user_func($format_unit_time_table, time_table: $day->pm, format: $format, separator: $separator_start_end),
+        'am' => call_user_func($formater_unit_time_table, time_table: $day->am, format: $format, separator: $separator_start_end),
+        'pm' => call_user_func($formater_unit_time_table, time_table: $day->pm, format: $format, separator: $separator_start_end),
         'am_pm' => array(
-            'am' => call_user_func($format_unit_time_table, time_table: $day->am, format: $format, separator: $separator_start_end),
-            'pm' => call_user_func($format_unit_time_table, time_table: $day->pm, format: $format, separator: $separator_start_end),
+            'am' => call_user_func($formater_unit_time_table, time_table: $day->am, format: $format, separator: $separator_start_end),
+            'pm' => call_user_func($formater_unit_time_table, time_table: $day->pm, format: $format, separator: $separator_start_end),
             'separator' => $separator_am_pm
         ),
         default => 'Not found'
@@ -68,7 +68,7 @@ function show_time_table(array $timeTable = array())
     $result = array();
 
     foreach ($timeTable as $day) {
-        $result[$day->label] = format_day_timetable($day, 'wsl_format_Unit_Timetable');
+        $result[$day->label] = format_day_timetable($day, __NAMESPACE__ . '\format_unit_timetable');
     }
 
     return $result;
