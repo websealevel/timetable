@@ -1,22 +1,23 @@
 <?php
+
 namespace Websealevel\TimeTable\Models;
 
 use DateTimeImmutable;
 
 /**
- * Modéle d'un horaire unitaire (début - fin)
+ * Modéle d'un horaire unitaire, couple DateTime (début - fin)
  */
 class Unit_Timetable
 {
     /**
      * Constructeur.
      *
-     * @param DateTimeImmutable $start Horaire du début.
-     * @param DateTimeImmutable $end Horaire de fin.
+     * @param string $start Horaire du début dans un format valide.
+     * @param string $end Horaire de fin dans un format valide.
      */
-    public function __construct(
-        public DateTimeImmutable $start = new DateTimeImmutable(),
-        public DateTimeImmutable $end = new DateTimeImmutable()
-    ) {
+    public function __construct(string $start, string $end)
+    {
+        $this->start = new DateTimeImmutable($start);
+        $this->end = new DateTimeImmutable($end);
     }
 }
