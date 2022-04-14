@@ -42,6 +42,10 @@ function format_unit_timetable(Unit_Timetable $time_table = new Unit_Timetable()
  */
 function format_day_timetable(Day_Timetable $day = new Day_Timetable(), string $formater_unit_time_table = __NAMESPACE__ . '\format_unit_timetable', string $am_pm = 'am_pm', string $format = 'H:i', string $separator_am_pm = ' ', string $separator_start_end = '-',): string|array
 {
+
+    if ($day->is_off)
+        return 'Fermé';
+
     return match ($am_pm) {
 
         'am' => call_user_func($formater_unit_time_table, time_table: $day->am, format: $format, separator: $separator_start_end),

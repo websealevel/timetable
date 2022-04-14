@@ -23,9 +23,11 @@ class Day_Timetable
 		public string $am_start = 'now',
 		public string $am_end = 'now',
 		public string $pm_start = 'now',
-		public string $pm_end = 'now'
+		public string $pm_end = 'now',
+		public bool $is_off = false
 	) {
 		$this->am = new Unit_Timetable($am_start, $am_end);
 		$this->pm = new Unit_Timetable($pm_start, $pm_end);
+		$this->is_off = $is_off;
 	}
 }

@@ -54,17 +54,11 @@ $time_table = array(
 	),
 	new Day_Timetable(
 		'samedi',
-		'8:0',
-		'12:0',
-		'13:30',
-		'17:0'
+		is_off: true
 	),
 	new Day_Timetable(
 		'dimanche',
-		'8:0',
-		'12:0',
-		'13:30',
-		'17:0'
+		is_off: true
 	),
 );
 
