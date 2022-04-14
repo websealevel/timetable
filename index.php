@@ -24,9 +24,10 @@ class WSL_Unit_Timetable {
     public function format(string $start_end = 'start_end', string $format = 'H:i', string $separator = '-'){
 
         return match($start_end){
-            'start' => $this->am->format($format),
-            'end' => $this->pm->format($format),
-            'start_end' => $this->am->format($format) . ' ' . $separator . ' ' . $this->pm->format($format)
+            'start' => $this->start->format($format),
+            'end' => $this->end->format($format),
+            'start_end' => $this->start->format($format) . ' ' . $separator . ' ' . $this->end->format($format),
+            default => 'Not found'
         };
     }
 }
@@ -45,18 +46,25 @@ class WSL_Day_Timetable {
 	public function __construct(
 		public WSL_Unit_Timetable $am = new WSL_Unit_Timetable(),
 		public WSL_Unit_Timetable $pm = new WSL_Unit_Timetable()
-	) {
+	) {}
+	/**
+	 * Retourne l'horaire formaté
+	 *
+	 * @param string $am_pm Formater le DateTime du matin ('am'), de l'apres-midi ('am') ou les deux ('am_pm').
+	 * @param string $format Format du DateTime.
+	 * @param string $separator Optional Le séparateur entre le début et la fin si $start_end est égal à 'start_end'.
+	 * @return string
+	 */
+	public function format( string $am_pm = 'am', string $format = 'H:i', string $separator = ' ' ): string {
+
+		return match ($am_pm) {
+			'am' => $this->am->format( format: $format ),
+			'pm' => $this->pm->format( format: $format ),
+			'am_pm' => $this->am->format( $format ) . ' ' . $separator . ' ' . $this->pm->format( $format ),
+            default => 'Not found'
+		};
 	}
-
-    public function format(string $am_pm = 'am', string $format = 'H:i'){
-
-        return match($am_pm){
-            'am' => $this->am->format(format: $format),
-            'pm' => $this->pm->format(format: $format),
-        };
-    }
 }
 
 $lundi = new WSL_Day_Timetable();
-var_dump($lundi);
-// var_dump($lundi->format(format:'H:i'));
+var_dump($lundi->format(am_pm: 'am_pm',format:'H:i', separator:'-'));
