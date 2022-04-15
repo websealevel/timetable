@@ -67,7 +67,7 @@ function show_time_table(array $timeTable = array())
     $result = array();
 
     foreach ($timeTable as $day) {
-        $result[$day->label] = format_day_timetable($day, __NAMESPACE__ . '\format_UnitTimetable');
+        $result[$day->label] = format_day_timetable($day, __NAMESPACE__ . '\format_unit_timetable');
     }
 
     return $result;
