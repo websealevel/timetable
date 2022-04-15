@@ -7,7 +7,7 @@ namespace Websealevel\TimeTable\Models;
  * 
  * @see Unit_Timetable
  */
-class Day_Timetable
+class DayTimetable
 {
 	/**
 	 * Constructeur.
@@ -26,8 +26,8 @@ class Day_Timetable
 		public string $pm_end = 'now',
 		public bool $is_off = false
 	) {
-		$this->am = new Unit_Timetable($am_start, $am_end);
-		$this->pm = new Unit_Timetable($pm_start, $pm_end);
+		$this->am = new UnitTimetable($am_start, $am_end);
+		$this->pm = new UnitTimetable($pm_start, $pm_end);
 		$this->is_off = $is_off;
 	}
 }

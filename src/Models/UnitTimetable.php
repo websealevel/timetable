@@ -7,7 +7,7 @@ use DateTimeImmutable;
 /**
  * Modéle d'un horaire unitaire, couple DateTime (début - fin)
  */
-class Unit_Timetable
+class UnitTimetable
 {
     /**
      * Constructeur.
