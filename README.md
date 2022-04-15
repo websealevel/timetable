@@ -10,6 +10,12 @@ Install this package with `composer`. It requires no other package.
 compose require websealevel/timetable
 ~~~
 
+## Test
+
+~~~bash
+vendor/bin/phpunit -c phpunit.xml
+~~~
+
 ## Description
 
 The timetable package provides two simple models
