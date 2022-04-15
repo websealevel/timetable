@@ -1,10 +1,19 @@
 <?php
 
-// require dirname(__DIR__) . '/src/Models/DayTimetable.php';
-// require dirname(__DIR__) . '/src/Models/UnitTimetable.php';
-// require dirname(__DIR__) . '/src/utils.php';
+
+declare(strict_types = 1)
+;
+
+use PHPUnit\Framework\TestCase;
+use Websealevel\TimeTable\Models\DayTimetable;
 
 
-class FormattingTest extends PHPUnit_Framework_TestCase
+class FormattingTest extends TestCase
 {
+    public function testDayTimetableIsNotOffByDefault()
+    {
+        $day = new DayTimetable();
+        $this->assertTrue(false === $day->is_off, 'Ok');
+
+    }
 }
