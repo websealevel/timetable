@@ -3,7 +3,7 @@
     "description" : "A simple timetable model easy to use and format to string for the web",
     "keywords": ["timetable","formatting"],
     "homepage":"https://github.com/websealevel/timetable",
-    "licence":"MIT",
+    "license":"MIT",
     "authors": [
         {
             "name": "Websealevel",
@@ -25,6 +25,5 @@
             "Websealevel\\TimeTable\\": "src/"
         },
         "files": ["src/utils.php"]
-    },
-    "version": "1.0.0"
+    }
 }
