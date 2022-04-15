@@ -1,6 +1,6 @@
 {
     "name": "websealevel/timetable",
-    "description" : "A simple timetable model easy to use and format to string for the web",
+    "description" : "A simple timetable model easy to use, extend. Embeded with simple functions to format timetables ready to use in your (web) app",
     "keywords": ["timetable","formatting"],
     "homepage":"https://github.com/websealevel/timetable",
     "license":"MIT",
