@@ -38,7 +38,7 @@ function format_unit_timetable(UnitTimetable $time_table = new UnitTimetable(), 
  * @param string $formater_unit_time_table Une fonction pour formater un UnitTimetable
  * @return string
  */
-function format_day_timetable(DayTimetable $day = new DayTimetable(), string $formater_unit_time_table = __NAMESPACE__ . '\format_UnitTimetable', string $am_pm = 'am_pm', string $format = 'H:i', string $separator_am_pm = ' ', string $separator_start_end = '-',): string|array
+function format_day_timetable(DayTimetable $day = new DayTimetable(), string $formater_unit_time_table = __NAMESPACE__ . '\format_unit_timetable', string $am_pm = 'am_pm', string $format = 'H:i', string $separator_am_pm = ' ', string $separator_start_end = '-',): string|array
 {
 
     if ($day->is_off)
