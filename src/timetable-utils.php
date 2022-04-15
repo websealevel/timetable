@@ -16,7 +16,7 @@ use Websealevel\TimeTable\Models\DayTimetable;
  * @param string $separator Optional Le séparateur entre l'horaire unitaire du matin et de l'après-midi, si $start_end est égal à 'start_end'.
  * @return string
  */
-function format_UnitTimetable(UnitTimetable $time_table = new UnitTimetable(), string $start_end = 'start_end', string $format = 'H:i', string $separator = '-'): string
+function format_unit_timetable(UnitTimetable $time_table = new UnitTimetable(), string $start_end = 'start_end', string $format = 'H:i', string $separator = '-'): string
 {
 
     return match ($start_end) {
@@ -38,7 +38,7 @@ function format_UnitTimetable(UnitTimetable $time_table = new UnitTimetable(), s
  * @param string $formater_unit_time_table Une fonction pour formater un UnitTimetable
  * @return string
  */
-function format_DayTimetable(DayTimetable $day = new DayTimetable(), string $formater_unit_time_table = __NAMESPACE__ . '\format_UnitTimetable', string $am_pm = 'am_pm', string $format = 'H:i', string $separator_am_pm = ' ', string $separator_start_end = '-',): string|array
+function format_day_timetable(DayTimetable $day = new DayTimetable(), string $formater_unit_time_table = __NAMESPACE__ . '\format_UnitTimetable', string $am_pm = 'am_pm', string $format = 'H:i', string $separator_am_pm = ' ', string $separator_start_end = '-',): string|array
 {
 
     if ($day->is_off)
@@ -67,7 +67,7 @@ function show_time_table(array $timeTable = array())
     $result = array();
 
     foreach ($timeTable as $day) {
-        $result[$day->label] = format_DayTimetable($day, __NAMESPACE__ . '\format_UnitTimetable');
+        $result[$day->label] = format_day_timetable($day, __NAMESPACE__ . '\format_UnitTimetable');
     }
 
     return $result;
