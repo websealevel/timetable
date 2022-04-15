@@ -23,7 +23,8 @@
     "autoload" : {
         "psr-4" : {
             "Websealevel\\TimeTable\\": "src/"
-        }
+        },
+        "files": ["src/utils.php"]
     },
     "version": "1.0.0"
 }
