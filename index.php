@@ -1,20 +1,7 @@
 <?php
 
-include './websealevel-timetable-utils.php';
-
 use Websealevel\TimeTable\Models\Day_Timetable;
-use Websealevel\TimeTable\Models\Unit_Timetable;
-
-use function Websealevel\TimeTable\format_day_timetable;
-use function Websealevel\TimeTable\format_unit_timetable;
 use function Websealevel\TimeTable\show_time_table;
-
-// $start = new DateTimeImmutable('8:0');
-// $end = new DateTimeImmutable('12:0');
-// var_dump($start->format('H:i'));
-// var_dump($end->format('H:i'));
-
-//Tests
 
 $time_table = array(
 	new Day_Timetable(
@@ -61,7 +48,6 @@ $time_table = array(
 		is_off: true
 	),
 );
-
 
 
 var_dump(show_time_table($time_table));

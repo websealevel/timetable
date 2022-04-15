@@ -2,8 +2,6 @@
 
 namespace Websealevel\TimeTable;
 
-include './class-websealevel-day-timetable.php';
-include './class-websealevel-unit-timetable.php';
 
 use Websealevel\TimeTable\Models\Unit_Timetable;
 use Websealevel\TimeTable\Models\Day_Timetable;
@@ -58,9 +56,6 @@ function format_day_timetable(Day_Timetable $day = new Day_Timetable(), string $
         default => 'Not found'
     };
 }
-
-
-
 
 /**
  * Retourne un tableau des horaires formaté
