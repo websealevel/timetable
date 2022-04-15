@@ -1,7 +1,5 @@
 # timetable
 
-WIP (this is my first submission so please be kind)
-
 This package provides a simple implementation of timetables. It provides three additional functions to format the timetables to display in your web application.
 
 ## Installation
@@ -9,7 +7,7 @@ This package provides a simple implementation of timetables. It provides three a
 Install this package with `composer`. It requires no other package.
 
 ~~~bash
-compose require websealevel/timetable:dev-main
+compose require websealevel/timetable
 ~~~
 
 ## Description
