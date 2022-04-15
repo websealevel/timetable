@@ -1,6 +1,6 @@
 # timetable
 
-This package provides a simple implementation of timetables. It provides three additional functions to format the timetables to display in your web application.
+This package provides a simple implementation of timetables. It provides three additional functions to format the timetables for displaying them in your (web) application.
 
 ## Installation
 
@@ -14,8 +14,8 @@ compose require websealevel/timetable
 
 The timetable package provides two simple models
 
-- `UnitTimetable`, which is simply a pair of DateTimeImmutable describing starting and finishing datetimes. It can be seen as an atomic model for timetables.
-- `DayTimetable`, which is simply a pair of `UnitTimetable`, describing a-m and p-m timetables for the day
+- `UnitTimetable`, which is simply a pair of `DateTimeImmutable` describing starting and finishing datetimes. It can be seen as an atomic model for timetables.
+- `DayTimetable`, which is simply a pair of `UnitTimetable`, describing *a-m* and *p-m* timetables for a day
 
 Three additional functions are embeded in the package to *format* our timetables, and prepare them ready for any kind of output.
 
@@ -70,7 +70,6 @@ $week_time_table = array(
 		is_off: true
 	),
 );
-
 
 $formated = show_time_table($week_time_table);
 
