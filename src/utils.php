@@ -45,6 +45,21 @@ function format_day_timetable(DayTimetable $day = new DayTimetable(), string $fo
     if ($day->closed === Closed::yes)
         return 'Fermé';
 
+    if($day->closed === Closed::am_only){
+        return array(
+            'am' => 'Fermé',
+            'pm' => call_user_func($formater_unit_time_table, time_table: $day->pm, format: $format, separator: $separator_start_end),
+            'separator' => $separator_am_pm
+        );
+    }
+
+    if($day->closed === Closed::pm_only){
+        return array(
+            'am' => call_user_func($formater_unit_time_table, time_table: $day->am, format: $format, separator: $separator_start_end),
+            'pm' => 'Fermé',
+        );
+    }
+
     return match ($am_pm) {
 
         'am' => call_user_func($formater_unit_time_table, time_table: $day->am, format: $format, separator: $separator_start_end),
