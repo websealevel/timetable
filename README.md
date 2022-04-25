@@ -69,11 +69,11 @@ $week_time_table = array(
 	),
 	new DayTimetable(
 		'saturday',
-		is_off: true
+		closed: Closed::yes
 	),
 	new DayTimetable(
 		'sunday',
-		is_off: true
+		closed: Closed::yes
 	),
 );
 
