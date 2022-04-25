@@ -5,6 +5,7 @@ namespace Websealevel\TimeTable;
 
 use Websealevel\TimeTable\Models\UnitTimetable;
 use Websealevel\TimeTable\Models\DayTimetable;
+use Websealevel\TimeTable\Models\Closed;
 
 
 /**
@@ -41,7 +42,7 @@ function format_unit_timetable(UnitTimetable $time_table = new UnitTimetable(), 
 function format_day_timetable(DayTimetable $day = new DayTimetable(), string $formater_unit_time_table = __NAMESPACE__ . '\format_unit_timetable', string $am_pm = 'am_pm', string $format = 'H:i', string $separator_am_pm = ' ', string $separator_start_end = '-',): string|array
 {
 
-    if ($day->is_off)
+    if ($day->closed === Closed::yes)
         return 'Fermé';
 
     return match ($am_pm) {

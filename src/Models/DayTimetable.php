@@ -2,6 +2,15 @@
 
 namespace Websealevel\TimeTable\Models;
 
+
+enum Closed
+{
+    case no;
+    case am_only;
+    case pm_only;
+    case yes;
+}
+
 /**
  * Modèle d'un horaire d'une journée, couple de Unit_Timetable (Horaire unitaire matin, Horaire unitaire après-midi)
  * 
@@ -24,10 +33,10 @@ class DayTimetable
 		public string $am_end = 'now',
 		public string $pm_start = 'now',
 		public string $pm_end = 'now',
-		public bool $is_off = false
+		public Closed $closed = Closed::no
 	) {
 		$this->am = new UnitTimetable($am_start, $am_end);
 		$this->pm = new UnitTimetable($pm_start, $pm_end);
-		$this->is_off = $is_off;
+		$this->closed = $closed;
 	}
 }
